@@ -44,4 +44,6 @@ docs/_build/
 .ipynb_checkpoints
 
 # venv
-venv/v/
+venv/
+
+teste.py
