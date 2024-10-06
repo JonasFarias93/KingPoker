@@ -7,8 +7,10 @@
 </head>
     {% block content %}
 <body>
-    <h1> AQUI É BRASIL PORRA</h1>
-    <h3>{{ Participant.name }}</h3>
+    <h1> King Poker</h1>
+    {% for player in players %}
+        <h3>{{ player.name }} - {{ player.points }} - {{ player.city }}</h3>
+    {% endfor %}
 </body>
     {% endblock %}
 </html>
