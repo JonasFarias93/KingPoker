@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+    <!-- <link rel="stylesheet" href="\app\static\css\gallery.css"> -->
+    <title>Gallery</title>
+</head>
+<body>
+    <h2>Galeria de Imagens</h2>
+
+    <!-- Formulário de Upload -->
+    <h3>Upload de Nova Imagem</h3>
+    <form method="post" enctype="multipart/form-data" action="{% url 'gallery_list' %}">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- O campo de arquivo deve estar aqui -->
+        <button type="submit">Upload</button>
+    </form>
+    </form>
+    <div class="grid-wrapper">
+        {% for image in images %}
+            <div>
+                <img src="{{ image.image }}" alt="{{ image.title }}">
+            </div>
+        {% empty %}
+            <div>
+                <p>Nenhuma imagem disponível na galeria.</p>
+            </div>
+        {% endfor %}
+        </div>
+</body>
+</html>
