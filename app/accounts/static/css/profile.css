@@ -1,0 +1,13 @@
+.cards-statics {
+    display: grid; /* Ativa o grid layout */
+    grid-template-columns: repeat(4, 1fr); /* Cria 4 colunas do mesmo tamanho */
+    gap: 20px; /* Espaçamento entre os cards */
+    width: 100%; /* Largura total do container */
+}
+
+.card {
+    background-color: grey; /* Cor de fundo do card */
+    padding: 20px; /* Espaçamento interno do card */
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+    text-align: center; /* Centraliza o texto dentro do card */
+}

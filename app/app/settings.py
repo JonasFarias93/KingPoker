@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'accounts',
     'cloudinary',
     'cloudinary_storage',
+    'gallery',
 ]
 
 MIDDLEWARE = [

@@ -16,7 +16,7 @@
     <h3>Upload de Nova Imagem</h3>
     <form method="post" enctype="multipart/form-data" action="{% url 'gallery_list' %}">
         {% csrf_token %}
-        {{ form.as_p }}  <!-- O campo de arquivo deve estar aqui -->
+        {{ form.as_p }}
         <button type="submit">Upload</button>
     </form>
     </form>
