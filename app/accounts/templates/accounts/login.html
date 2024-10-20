@@ -1,0 +1,103 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Css Style-->
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+    <title>KingPoker</title>
+</head>
+<body>
+    <header>
+        <h2 class="logo"> KingPoker </h2>
+        <input type="checkbox" name="" id="checkbox_toggle">
+        <label for="checkbox_toggle" class="hamburguer">&#9776</label>
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="gallery">Galeria</a>
+            <a href="#">Sobre</a>
+            <a href="#">Blog</a>
+            <button class="navbar-btn">Entrar</button>
+        </nav>
+    </header>
+
+    <!-- Form Login-->
+    <div class="form-container">
+        <span class="close-icon"><ion-icon name="close"></ion-icon></span>
+
+        <!-- Formulário de Login -->
+        <div class="formbox login">
+            <h2>Entrar</h2>
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" name="username" required autocomplete="new-password">
+                    <label for="username">Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" name="password" required autocomplete="new-password">
+                    <label for="password">Senha</label>
+                </div>
+                <div class="forget-remember">
+                    <label><input type="checkbox"> Me lembre</label>
+                    <a href="#">Esqueceu a senha?</a>
+                </div>
+                <button class="btn" type="submit">Entrar</button>
+                <div class="reg-login">
+                    <p>Não tem conta? <a href="{% url 'register' %}" class="reg-link">Registre-se</a></p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Formulário de Registro -->
+        <div class="formbox register">
+            <h2>Registrar</h2>
+            <form method="POST" action="{% url 'register' %}">
+                {% csrf_token %}
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" name="email" required autocomplete="email">
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" name="username" required autocomplete="username">
+                    <label for="username">Usuário</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" name="password1" required autocomplete="new-password">
+                    <label for="password1">Senha</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" name="password2" required autocomplete="new-password">
+                    <label for="password2">Confirme a Senha</label>
+                </div>
+                <div class="forget-remember">
+                    <label><input type="checkbox" required>Eu aceito os <a href="#" class="terms-conditions">termos</a> de uso & condições.</label>
+                </div>
+                <button class="btn" type="submit">Registrar</button>
+                <div class="reg-login">
+                    <p>Já tem conta? <a href="{% url 'login' %}" class="log-link">Entrar</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="{% static 'js/login.js' %}"></script>
+    <!-- Ionic Fonts -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>

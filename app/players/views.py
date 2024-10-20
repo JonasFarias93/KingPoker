@@ -11,5 +11,3 @@ def players_views(request):
     return render(request,'players.html',
     {'players': players})
 
-def index_views(request):
-    return render(request, 'login.html')
